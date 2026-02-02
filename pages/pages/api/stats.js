@@ -1,7 +1,9 @@
 export default function handler(req, res) {
-  const { sport, player, team, season } = req.query;
+  // Ensure req.query exists
+  const query = req.query || {};
+  const { sport, player, team, season } = query;
 
-  // Randomized stats for demo
+  // Random stats
   const stats = {
     games: Math.floor(Math.random() * 20) + 1,
     avgPoints: Math.floor(Math.random() * 30) + 5,
